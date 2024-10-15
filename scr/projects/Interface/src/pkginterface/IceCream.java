@@ -14,7 +14,7 @@ public class IceCream extends Food implements Allergic{
     private final Allergens[] ALLERGENS = {Allergens.DAIRY};
     
     public IceCream(){
-        super{"Ice Cream", 4.5, Courses.DESSERT);
+        super("Ice Cream", 4.5, Courses.DESSERT);
     }
     
     @Override
