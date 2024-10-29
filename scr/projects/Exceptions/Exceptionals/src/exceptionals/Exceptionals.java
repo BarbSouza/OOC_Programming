@@ -38,10 +38,34 @@ public class Exceptionals {
             }catch(NegativeNumberException e){
                 System.out.println(e);
             }
-                
+        }
+    
+    //the second for rectangle
+        
+        Rectangle rect1 = new Rectangle(input, 6);
+        
+        //inut = is a java runtime unchecked exception
+        //Java will not tell us about this in advance
+        
+        System.out.println(input);
+        
+        System.out.println(8/input); //ArithmeticException possible divide by zero
+        
+        int[] numArray = {1,2,5,8,11,14};
+        
+        System.out.println(numArray[input]); //check the input value in the array
+        
+        //the second exception block for rectangle
+        try{
+            throw new Exception("This is a general exception");
+        }catch(FileNotFoundException e){
+            System.out.println("The File is not Found");
+        }catch(Exception e){
+        e.printStackTrace(); //this stack trace is
+        //a reference to when and where the event error occured
         }
 
-    }
+
     
 }
     
