@@ -10,4 +10,15 @@ package exceptionals;
  */
 public class Rectangle {
     
+    //atrributes
+    
+    int length;
+    int width;
+    
+    //the constructor will manage/ validate the input
+    
+    public Rectangle(int length, int width){
+        
+    }
+    
 }
