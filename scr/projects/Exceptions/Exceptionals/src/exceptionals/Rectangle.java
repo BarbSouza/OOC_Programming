@@ -19,6 +19,14 @@ public class Rectangle {
     
     public Rectangle(int length, int width){
         
+        if(length <= 0 || width <= 0){
+            throw new NegativeNumberException("The side must be positive");
+            
+        }
+        //otherwise if the value is bigger than zero
+        this.length = length;
+        this.width = width;
+        
     }
     
 }
