@@ -31,8 +31,25 @@ public class DatabaseSetup extends DB_Connection {
              //This is the query (statement)
              //check if we have the db otherwise create it
              stmt.execute("CRETE DATABASE IF NOT EXITS" + DB_NAME + ";");
-         }
-        
+              //Query the db using the USE
+             stmt.execute("USE" + DB_NAME + ";"); //database (Schema) pointer
+             //Create a query to insert into the db
+             String sql = 
+                     //CREATE TABLE IF NOT EXISTS patient_data cal1 (col type)
+                     "CREATE TABLE IF NOT EXISTS " + TABLE + "( "
+                     + "name VARCHAR(255),"
+                     + "bithdate DATE,"
+                     + "bloodType VARCHAR(3)"
+                     + "id INT(10)"
+                     + ")";
+             
+             //take this String query and execute it
+             stmt.execute(sql);
+             
+              return true;       
+         }catch(Exception e){
+             e.printStackTrace();
+             return false;
     }
     
     //create some logic to ensure we do not run into issues with db connection
