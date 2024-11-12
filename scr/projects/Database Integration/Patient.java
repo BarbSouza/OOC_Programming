@@ -24,5 +24,27 @@ public class Patient {
     //and check the currentIDs
     
     private static int currentID = 1;
+    //Create 2 constructors
+    //one constructor will be the patient data
+    public Patient(String name, String birthDate, String bloodType){
+    this.name = name;
+    this.birthDate = birthDate;
+    this.patientID = currentID; //static value 1
+    currentID++; //Value 2
     
+        System.out.println(name + " has a birthday on " + birthDate);
+    }
+    
+    //the other is when adding the patient to the db
+    //Constructor 2
+    public Patient(String name, String birthDate, String bloodType, int patientID){
+    this.name = name;
+    this.birthDate = birthDate;
+    this.patientID = patientID;
+    
+    if (currentID <= patientID ){ //current ID = 2
+        currentID = patientID + 1; //This will increment the current ID
+        
+        
+    }
 }
