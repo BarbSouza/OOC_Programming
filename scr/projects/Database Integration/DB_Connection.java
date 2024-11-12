@@ -14,7 +14,7 @@ public class DB_Connection {
     //all of our db information used to perform
     //CRUD operations will rely on this connection
     
-    protected final static String DB_URL = "jdbc:mysql//localhost";
+    protected final static String DB_BASE_URL = "jdbc:mysql://localhost";
     protected final static String USER = "root";
     protected final static String PASSWORD = "password";
     //This Schema name may or may not be create
@@ -22,5 +22,5 @@ public class DB_Connection {
     protected final static String TABLE = "patient_data";
     
     //Now we create the final Database URL with the Schema
-    protected final static String DB_BASE_URL = DB_URL + "/" + DB_NAME;
+    protected final static DB_URL = DB_BASE_URL + "/" + DB_NAME;
 }
