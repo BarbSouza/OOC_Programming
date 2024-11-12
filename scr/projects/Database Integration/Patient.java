@@ -44,7 +44,28 @@ public class Patient {
     
     if (currentID <= patientID ){ //current ID = 2
         currentID = patientID + 1; //This will increment the current ID
-        
-        
+    }
+        public String getName() {
+        return name;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public String getBloodType() {
+        return bloodType;
+    }
+
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public static int getCurrentID() {
+        return currentID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
