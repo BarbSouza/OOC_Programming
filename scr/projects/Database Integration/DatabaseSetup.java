@@ -25,12 +25,12 @@ public class DatabaseSetup extends DB_Connection {
          
         //try to connect to the database
          try(
-                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+                 Connection conn = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD);
                  Statement stmt = conn.createStatement();
                  ){
              //This is the query (statement)
              //check if we have the db otherwise create it
-             stmt.execute("CRETE DATABASE IF NOT EXITS" + DB_NAME + ";");
+             stmt.execute("CRETE DATABASE IF NOT EXITS " + DB_NAME + ";");
               //Query the db using the USE
              stmt.execute("USE" + DB_NAME + ";"); //database (Schema) pointer
              //Create a query to insert into the db
