@@ -10,11 +10,17 @@ package db_connection;
  */
 public class DB_Connection {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+    //This is the database connection information
+    //all of our db information used to perform
+    //CRUD operations will rely on this connection
     
+    protected final static String DB_URL = "jdbc:mysql//localhost";
+    protected final static String USER = "root";
+    protected final static String PASSWORD = "password";
+    //This Schema name may or may not be create
+    protected final static String DB_NAME = "hospital";
+    protected final static String TABLE = "patient_data";
+    
+    //Now we create the final Database URL with the Schema
+    protected final static String DB_BASE_URL = DB_URL + "/" + DB_NAME;
 }
