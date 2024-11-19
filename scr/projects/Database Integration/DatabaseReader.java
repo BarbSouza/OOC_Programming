@@ -34,18 +34,22 @@ public class DatabaseReader extends DB_Connection {
             // Now that the connection is established
             // We begin creating the logic for reading the data from the db
             // There will be multiple records, we would like to iterate through all the records
-            ResultSet results = stmt.executeQuery(String.format("SELECT * FROM %s;", TABLE));
-            // Create a check for results and create a while loop to iterate through them
             while(results.next()){
                 //Name, BirthDate, BloodType, ID
                 String name = results.getString("name");
-                String birthname = results.getString("birth_name");
+                String birthdate = results.getString("birth_name");
                 String bloodtype = results.getString("blood_type");
                 int id = results.getInt("id");
+                
+                Patient patient = new Patient(name, birthdate, bloodtype, id);
+                patients.add(patient);
             }
                 
         }catch(Exception e){
             e.printStackTrace();
         }
+        //the array data
+        return patients;
     }
+    
 }
