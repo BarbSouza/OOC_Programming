@@ -59,11 +59,53 @@ public class HospitalAdministration {
                         System.out.println("Blood Type: ");
                         String bloodtype = scanner.nextLine();
                         
+                       //collect all the user input
+                        Patient newPatient = new Patient(name, birthdate, bloodtype);
+                        
                         //Try adding the patient record
-                        //After the break
-                    
-                }
-            }
+                        //Check if the process is successful
+                        //otherwise let the user know
+                        if(dbw.addPatient(newPatient)){
+                            System.out.println("Patient added Successfully");
+                            
+                        }else {
+                            System.out.println("Unable to add patient, please check all the fields");
+                        }
+                        break;
+                    case 2: //read the data from db
+                        ArrayList<Patient> patients =dbr.getAllData();
+                        //retrieve the data from the db
+                        //store it as the patients arraylist
+                        //check if it's empty
+                        if(patients.isEmpty()){
+                            System.out.println("No Data was found");
+                        }else{
+                            System.out.printf("%-5s | %-20s | %-12s | %8s", "\nID", "Name", "Birth Date", "Blood Type");
+                            System.out.println("\n-------------------------------------------");
+                            //print out all the patient records into the table
+                            //this will require iterating through the 
+                            for(Patient patient: patients){
+                                System.out.printf("%-5s | %-20s | %-12s | %8s\n",
+                                        patient.getPatientID(),
+                                        patient.getName(),
+                                        patient.getBirthDate(),
+                                        patient.getBloodType());
+                            }
+                        }
+                            break;
+                            
+                            case 3: //Exit
+                                System.out.println("Thank you for using our system");
+                                System.out.println("System Exit...");
+                                scanner.close(); //IO Stream and we dont want the user to be able to interact with the system when it's shutdown
+                                return;
+                                
+                            default:
+                                System.out.println("Wrong input please select from the choices");
+                            
+                        }
+
+                    }
             
         }else {
             //This means there is an issue either connecting to the db or creating it
