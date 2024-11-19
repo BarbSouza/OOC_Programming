@@ -26,7 +26,7 @@ public class DatabaseReader extends DB_Connection {
         ArrayList<Patient> patients = new ArrayList<>();
         // Try to connect to the database and retrieve the information
         try(
-                Connection conn = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD);
+                Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement();
                 ){
             // In this block we will handle any requirements for pulling the data from the db
@@ -34,11 +34,13 @@ public class DatabaseReader extends DB_Connection {
             // Now that the connection is established
             // We begin creating the logic for reading the data from the db
             // There will be multiple records, we would like to iterate through all the records
+            ResultSet results = stmt.executeQuery(String.format("SELECT * FROM %s;", TABLE));
+            // Create a check for results and create a while loop to iterate through them
             while(results.next()){
                 //Name, BirthDate, BloodType, ID
                 String name = results.getString("name");
-                String birthdate = results.getString("birth_name");
-                String bloodtype = results.getString("blood_type");
+                String birthdate = results.getString("birtdate");
+                String bloodtype = results.getString("bloodtype");
                 int id = results.getInt("id");
                 
                 Patient patient = new Patient(name, birthdate, bloodtype, id);
